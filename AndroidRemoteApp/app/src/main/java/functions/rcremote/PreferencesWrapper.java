@@ -31,7 +31,7 @@ public class PreferencesWrapper {
         mPreferences.edit().putInt(PREF_PORT, port).apply();
     }
 
-    public String getServerAdress () {
+    public String getServerAddress() {
         return mPreferences.getString(PREF_ADDRESS, "0.0.0.0");
     }
 

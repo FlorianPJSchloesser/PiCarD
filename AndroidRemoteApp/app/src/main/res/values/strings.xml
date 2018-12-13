@@ -4,7 +4,7 @@
     <string name="hint_ip">IP Address</string>
     <string name="hint_port">Port</string>
     <string name="hint_identifier">Identifier</string>
-    <string name="hint_controller_name">Controller Name</string>
+    <string name="hint_controller_name" translatable="false">Controller Name</string>
 
     <string name="status_connected">Connected</string>
     <string name="status_disconnected">Disconnected</string>

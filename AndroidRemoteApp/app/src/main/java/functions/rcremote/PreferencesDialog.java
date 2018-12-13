@@ -1,16 +1,11 @@
 package functions.rcremote;
 
 import android.app.Activity;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-
-import functions.rcremote.PreferencesWrapper;
-import functions.rcremote.R;
 
 /**
  * Created by Florian Schlösser on 09.04.2017.
@@ -50,7 +45,7 @@ public class PreferencesDialog extends Activity implements View.OnClickListener 
     private void applyPreferences () {
         PreferencesWrapper preferences = new PreferencesWrapper(this);
 
-        String ipAdress = preferences.getServerAdress();
+        String ipAdress = preferences.getServerAddress();
         String port = String.valueOf(preferences.getServerPort());
         String identifier = String.valueOf(preferences.getClientIdentifier());
 
