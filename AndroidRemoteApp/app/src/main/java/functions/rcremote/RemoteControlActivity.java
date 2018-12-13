@@ -22,8 +22,6 @@ import pl.pawelkleczkowski.customgauge.CustomGauge;
 public class RemoteControlActivity extends AppCompatActivity implements View.OnClickListener {
 
     /* VIEWS*/
-    private View mContentView;
-    private View mControlsView;
     private JoyStick mSteeringStick;
     private JoyStick mThrottleStick;
     private Button mConnectButton;
@@ -68,6 +66,7 @@ public class RemoteControlActivity extends AppCompatActivity implements View.OnC
         mSteeringStick.setButtonColor(getColor(R.color.colorAccent));
         mThrottleStick.setButtonColor(getColor(R.color.colorAccent));
 
+        //Set listeners
         mConnectButton.setOnClickListener(this);
         mServerPreferencesButton.setOnClickListener(this);
 
@@ -78,11 +77,11 @@ public class RemoteControlActivity extends AppCompatActivity implements View.OnC
         if (view.equals(mConnectButton)) {
             if (!mConnected) {
                 PreferencesWrapper preferencesWrapper = new PreferencesWrapper(this);
-                String ipAdress = preferencesWrapper.getServerAdress();
+                String ipAddress = preferencesWrapper.getServerAddress();
                 int port = preferencesWrapper.getServerPort();
 
                 mRCClient = new RCClient();
-                mRCClient.setIpAddress(ipAdress);
+                mRCClient.setIpAddress(ipAddress);
                 mRCClient.setPort(port);
                 mRCClient.start();
 
@@ -145,7 +144,7 @@ public class RemoteControlActivity extends AppCompatActivity implements View.OnC
 
         @Override
         public void onDoubleTap() {
-            //TODO toggle "gear"
+            //TODO toggle "power level"
         }
     };
 
