@@ -40,6 +40,10 @@ public class PreferencesDialog extends Activity implements View.OnClickListener 
         mResetIPButton.setOnClickListener(this);
         mResetPortButton.setOnClickListener(this);
         mSaveButton.setOnClickListener(this);
+
+        //TODO implement identifier or remove it
+        mIdentifierEdit.setEnabled(false);
+        mIdentifierEdit.setText("DISABLED");
     }
 
     private void applyPreferences () {
@@ -49,9 +53,9 @@ public class PreferencesDialog extends Activity implements View.OnClickListener 
         String port = String.valueOf(preferences.getServerPort());
         String identifier = String.valueOf(preferences.getClientIdentifier());
 
-        mIPEdit.setText(ipAdress.equals("") ? ipAdress : "");
-        mPortEdit.setText(port.equals("") ? port : "");
-        mIdentifierEdit.setText(identifier.equals("") ? identifier : "");
+        mIPEdit.setText(ipAdress.equals("") ? "" : ipAdress);
+        mPortEdit.setText(port.equals("") ? "" : port);
+        //TODO implement identifier or remove it// mIdentifierEdit.setText(identifier.equals("") ? "" : identifier);
     }
 
     @Override
@@ -59,7 +63,7 @@ public class PreferencesDialog extends Activity implements View.OnClickListener 
         if (view.equals(mResetIPButton)) {
             mIPEdit.setText("192.168.");
         } else if (view.equals(mResetPortButton)) {
-            mPortEdit.setText("16382");
+            mPortEdit.setText("5005");
         } else if (view.equals(mSaveButton)) {
             PreferencesWrapper preferences = new PreferencesWrapper(this);
             preferences.setServerAddress(mIPEdit.getText().toString());
