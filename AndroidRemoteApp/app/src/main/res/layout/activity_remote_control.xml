@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    tools:context="floschlo.rccontrol.MainActivity">
+
+    <com.erz.joysticklibrary.JoyStick
+        android:id="@+id/joystick_steering"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:elevation="8dp"/>
+
+    <TextView
+        android:text="DISCONNECTED"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/label_connection"
+        android:textColor="@color/red"
+        android:background="@color/colorPrimary"
+        android:padding="8dp"
+        android:gravity="center"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/label_connection"
+        android:id="@+id/progress_connection"
+        android:visibility="gone"/>
+
+    <org.honorato.multistatetogglebutton.MultiStateToggleButton
+        android:id="@+id/mstb_lights"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        app:values="@array/lights_array"
+        app:mstbPrimaryColor="@color/colorAccent"
+        app:mstbSecondaryColor="@color/colorPrimary"
+        android:layout_toLeftOf="@id/label_connection"/>
+
+    <Button
+        android:text="Connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_connect"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"/>
+
+    <ImageButton
+        android:src="@drawable/ic_action_server_prefs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:id="@+id/button_server_prefs"
+        android:layout_above="@+id/button_connect"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"/>
+
+    <org.honorato.multistatetogglebutton.MultiStateToggleButton
+        android:id="@+id/mstb_speeds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/label_connection"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        app:values="@array/speed_array"
+        app:mstbPrimaryColor="@color/colorAccent"
+        app:mstbSecondaryColor="@color/colorPrimary"/>
+
+    <RelativeLayout
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_below="@id/label_connection"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:id="@+id/relativeLayout">
+
+        <pl.pawelkleczkowski.customgauge.CustomGauge
+            android:id="@+id/gauge_rpm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            app:gaugePointStartColor="@color/colorAccent"
+            app:gaugePointEndColor="@color/colorAccent"
+            app:gaugeStartAngle="150"
+            app:gaugeStrokeCap="ROUND"
+            app:gaugeStrokeColor="@color/colorPrimary"
+            app:gaugeStrokeWidth="10dp"
+            app:gaugeStartValue="0"
+            app:gaugeEndValue="10000"
+            app:gaugeSweepAngle="240"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/label_rpm"
+            android:text="0"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="24dp"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:text="@string/label_rpm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/label_rpm"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView"/>
+    </RelativeLayout>
+
+    <com.erz.joysticklibrary.JoyStick
+        android:id="@+id/joystick_throttle"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:elevation="8dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:text="PING"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_connect"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/label_latency"/>
+
+</RelativeLayout>

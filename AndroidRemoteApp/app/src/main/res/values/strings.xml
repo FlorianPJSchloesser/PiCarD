@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">RC Control</string>
+
+    <string name="hint_ip">IP Address</string>
+    <string name="hint_port">Port</string>
+    <string name="hint_identifier">Identifier</string>
+    <string name="hint_controller_name">Controller Name</string>
+
+    <string name="status_connected">Connected</string>
+    <string name="status_disconnected">Disconnected</string>
+    <string name="action_connect">Connect</string>
+    <string name="action_disconnect">Disconnect</string>
+    <string name="action_save">Save</string>
+
+    <string name="label_rpm">RPM</string>
+
+    <string-array name="lights_array">
+        <item>Off</item>
+        <item>On</item>
+    </string-array>
+
+    <string-array name="speed_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+</resources>
