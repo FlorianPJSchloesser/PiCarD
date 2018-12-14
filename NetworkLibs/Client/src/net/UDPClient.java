@@ -2,6 +2,11 @@ package net;
 
 import java.net.*;
 
+/**
+ * 
+ * @author Felix Bell
+ *
+ */
 public class UDPClient {
 	private InetAddress IPAddress;
 	private int port;

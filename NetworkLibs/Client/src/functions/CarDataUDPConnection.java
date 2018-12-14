@@ -1,31 +1,34 @@
-package main;
+package functions;
 
 
 import net.UDPClient;
 
-public class RCClient extends Thread{
-
-	public static void main(String[] args) {
-		
-	}
+/**
+ * 
+ * @author Felix Bell
+ *
+ */
+public class CarDataUDPConnection extends Thread{
+	
+	private static int neutralPosition = 2047;
 	
 	private boolean running = false;
-	private int steering = 2047;
-	private int throttle = 2047;
+	private int steering = neutralPosition;
+	private int throttle = neutralPosition;
 
 	private int sleepTime = 20;
 	
 	private UDPClient rcClient;
 	
-	public RCClient() {
+	public CarDataUDPConnection() {
 		rcClient = new UDPClient("192.168.178.91",5005);
 	}
 	
-	public RCClient(String ipAddress, int port) {
+	public CarDataUDPConnection(String ipAddress, int port) {
 		rcClient = new UDPClient(ipAddress,port);
 	}
 	
-	public RCClient(String ipAddress, int port, int frequency) {
+	public CarDataUDPConnection(String ipAddress, int port, int frequency) {
 		rcClient = new UDPClient(ipAddress,port);
 		sleepTime = 1000/frequency;
 	}
@@ -42,7 +45,7 @@ public class RCClient extends Thread{
 		}
 	}
 	
-	public void pause() {
+	public void kill() {
 		running = false;
 	}
 	
